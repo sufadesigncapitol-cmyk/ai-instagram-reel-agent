@@ -1,0 +1,145 @@
+# Agent Configuration
+agent:
+  name: "InstagramReelAgent"
+  description: "Autonomous AI agent for Instagram Reel creation and publishing"
+  version: "1.0.0"
+
+# Research Configuration
+research:
+  enabled: true
+  sources:
+    - google_trends
+    - reddit
+    - twitter
+    - news_api
+    - tiktok_trends
+  keywords_per_search: 5
+  results_per_keyword: 10
+  research_depth: "comprehensive"
+  cache_duration_hours: 6
+  
+# Script Generation
+scriptwriter:
+  model: "gpt-4"
+  max_length: 150  # words for 60-second video
+  tone: "engaging"
+  language: "en"
+  templates_enabled: true
+  creativity_level: 0.7
+
+# Voiceover
+voiceover:
+  provider: "elevenlabs"  # elevenlabs, google_tts, azure
+  voice_id: "rachel"
+  language: "en-US"
+  speed: 1.0
+  volume: -20  # dB
+
+# Video Generation
+video:
+  resolution: "1080x1920"  # Instagram Reels format
+  fps: 30
+  duration: 60  # seconds
+  background_music: true
+  music_volume: -15  # dB relative to voiceover
+  effects:
+    - transitions
+    - text_overlays
+    - color_grading
+  subtitle_style: "modern"
+  
+# Caption & Hashtag Generation
+captions:
+  max_length: 2200
+  hashtag_count: 20
+  include_emojis: true
+  caption_style: "engaging"
+  hashtag_strategy: "mix"  # mix, trending, niche, broad
+
+# Social Media Configuration
+social_media:
+  platforms:
+    - instagram
+    - tiktok
+    - youtube_shorts
+  auto_publish: true
+  optimal_posting_times: true
+  
+  instagram:
+    enabled: true
+    business_account: true
+    
+  tiktok:
+    enabled: true
+    
+  youtube:
+    enabled: true
+    channel_id: "your_channel_id"
+
+# Vector Database Configuration
+vector_db:
+  provider: "pinecone"  # pinecone, weaviate, milvus
+  dimension: 1536
+  similarity_metric: "cosine"
+  index_name: "instagram-reels"
+  
+  # Pinecone specific
+  pinecone:
+    environment: "production"
+    pod_type: "s1"
+    
+  # Weaviate specific
+  weaviate:
+    url: "http://localhost:8080"
+
+# Learning & Optimization
+learning:
+  enabled: true
+  metrics_to_track:
+    - engagement_rate
+    - view_duration
+    - share_rate
+    - comment_rate
+    - save_rate
+  optimization_interval_days: 7
+  a_b_testing: true
+
+# Content Management
+content:
+  auto_delete_after_days: 90
+  archive_successful_videos: true
+  keep_drafts: true
+  max_drafts: 50
+
+# Scheduling
+scheduling:
+  enabled: true
+  run_interval_hours: 6
+  max_videos_per_day: 3
+  timezone: "UTC"
+  
+# Monitoring & Analytics
+monitoring:
+  enabled: true
+  track_performance: true
+  dashboard_enabled: true
+  alert_on_errors: true
+  
+# Rate Limiting
+rate_limiting:
+  enabled: true
+  requests_per_minute: 60
+  burst_size: 100
+
+# Error Handling
+error_handling:
+  retry_attempts: 3
+  retry_backoff_multiplier: 2
+  timeout_seconds: 30
+  
+# Logging
+logging:
+  level: "INFO"
+  format: "json"
+  file_rotation: "daily"
+  retention_days: 30
